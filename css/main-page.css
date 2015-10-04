@@ -1,0 +1,85 @@
+body {
+  font-family: 'Inconsolata';
+}
+
+.blue {
+  color: #6067af;
+}
+
+/*******/
+/* nav */
+nav
+{
+  background: black;
+}
+
+nav li
+{
+}
+
+nav a
+{
+  color: white;
+  text-transform: uppercase;
+  font-size 1.1em;
+  text-decoration: none;
+}
+
+nav a:hover
+{
+  border-bottom: 2px solid #f05658
+}
+
+/**********/
+/* header */
+header 
+{
+  background: black;
+}
+
+header h1
+{
+  color: white;
+  font-size: 5em;
+}
+
+header h3 
+{ 
+  color: white;
+  font-size: 3em;
+}
+
+/*********************/
+/* propaganda stripe */
+.stripe
+{
+  background: black;
+  color: white;
+}
+
+.stripe h1
+{
+  font-size 2em;
+}
+/*************/
+/* demo repl */
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
+fieldset {
+  border: none;
+  font-family: 'Inconsolata';
+}
+
+.try-it-line
+{
+  width: 100% !important;
+}
+
+.try-it-view,
+.try-it-view:active
+{
+  border: none;
+}
