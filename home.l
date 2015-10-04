@@ -30,10 +30,15 @@
 
 (de large-logo ()
   (<img> "img/logo/PicoLisp_Logo_white_large.png" "PicoLisp") )
+
+
 #######
 # icons
+(de small-icon ()
+  (<img> "img/icon/PicoLisp_Icon_small.png" "icon" "#") ) # link
 (de large-icon ()
   (<img> "img/icon/PicoLisp_Icon_large.png" "icon") )
+
 
 ###########
 # main page
@@ -51,8 +56,8 @@
   (server 8080 "!home") )
 
 
-#####
-# nav
+############
+# navigation
 (de <nav> (Attr . Prg)
   (tag 'nav Attr 2 Prg) )
 
@@ -62,7 +67,7 @@
 
 (de nav-links ()
   (<ul> "container row ta-c mb-s"
-    (small-logo)
+    (small-icon)
     (<li> "col" (<href> "Download" "#"))
     (<li> "col" (<href> "Documentation" "#"))
     (<li> "col" (<href> "Community" "#")) ) )
