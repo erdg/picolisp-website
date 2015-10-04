@@ -11,24 +11,42 @@ body {
 nav
 {
   background: black;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
-nav li
-{
+nav img {
+  padding-top: 8px;
 }
 
-nav a
-{
+nav ul {
+  margin-bottom: 4px
+}
+
+nav a {
   color: white;
   text-transform: uppercase;
   font-size 1.1em;
   text-decoration: none;
 }
 
-nav a:hover
-{
-  border-bottom: 2px solid #f05658
+nav .icon-link {
+  padding-right: 8px;
 }
+
+.mob-pt-s {
+  padding-top: 0px;
+}
+
+@media screen and (max-width: 40em) {
+  nav a {
+    float: left;
+  }
+  .mob-pt-s {
+    padding-top: 8px;
+  }
+}
+
 
 /**********/
 /* header */
@@ -47,6 +65,12 @@ header h3
 { 
   color: white;
   font-size: 3em;
+}
+
+@media screen and (min-height: 768px) {
+  nav img {
+    content: '../img/icon/PicoLisp_Icon_medium.png'
+  }
 }
 
 /*********************/

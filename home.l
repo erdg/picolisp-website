@@ -36,6 +36,10 @@
 # icons
 (de small-icon ()
   (<img> "img/icon/PicoLisp_Icon_small.png" "icon" "#") ) # link
+
+(de medium-icon ()
+  (<img> "img/icon/PicoLisp_Icon_medium.png" "icon") )
+
 (de large-icon ()
   (<img> "img/icon/PicoLisp_Icon_large.png" "icon") )
 
@@ -62,15 +66,16 @@
   (tag 'nav Attr 2 Prg) )
 
 (de nav ()
-  (<nav> '("pt-l pb-l" (style . "background: black;"))
+  (<nav> NIL
     (nav-links) ) )
 
 (de nav-links ()
-  (<ul> "container row ta-c mb-s"
-    (small-icon)
-    (<li> "col" (<href> "Download" "#"))
-    (<li> "col" (<href> "Documentation" "#"))
-    (<li> "col" (<href> "Community" "#")) ) )
+  (<ul> "container row ta-c"
+    (<style> "icon-link col va-m"
+      (small-icon) )
+    (<li> "col va-m mob-pt-s" (<href> "Download" "#"))    # columns, text vertically
+    (<li> "col va-m" (<href> "Documentation" "#"))        # aligned to middle
+    (<li> "col va-m" (<href> "Community" "#")) ) )
 
 
 ########
@@ -88,7 +93,7 @@
 
 (de header-icon ()
   (<style> "rwd-img d-b ml-a mr-a"
-    (large-icon) ) )
+    (medium-icon) ) )
 
 
 ########
