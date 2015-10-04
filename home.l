@@ -5,6 +5,7 @@
     "css/utils.css" 
     "css/ungrid.css" 
     "css/container.css"
+    "css/typography.css"
     "https://fonts.googleapis.com/css?family=Inconsolata"
     "css/forms.css"
     "css/buttons.css"
@@ -84,7 +85,7 @@
   (tag 'header Attr 2 Prg) )
 
 (de header ()
-  (<header> '("pt-l pb-l" (style . "background: black;"))
+  (<header> "pt-s pb-s"
     (<h1> "ta-c fw-b"
       "PicoLisp" )
     (header-icon)
@@ -100,17 +101,17 @@
 # try it
 (de try-it ()
   (<div> '(style . `(pack "background: " dark-grey*))
-    (<div> "container row pt-s pb-xl" 
-      (<div> "col pl-xxl pr-l"
-        (<h1> '(style . `(pack "color: " pico-green*))
+    (<div> "container row pt-s pb-s" 
+      (<div> "col" 
+        (<h4> '(style . `(pack "color: " pico-green*))
           "Try it" )
-        (<h3> '(style . "color: #d3d3d3")
+        (<h6> '(style . "color: #d3d3d3")
           "Type PicoLisp expressions here" )
         (try-it-repl) )
-      (<div> "col pl-l pr-xxl"
-        (<h1> '(style . `(pack "color: " pico-red*))
+      (<div> "col"
+        (<h4> '(style . `(pack "color: " pico-red*))
           "Got 5 minutes?" )
-        (<h3> '(style . "color: #d3d3d3")
+        (<h6> '(style . "color: #d3d3d3")
           "Type help to start the tutorial" ) ) ) ) )
 
 (de try-it-repl ()
@@ -138,9 +139,10 @@
 # propaganda stripe 
 (de stripe ()
   (<div> "stripe pt-l pb-l"
-    (<h1> "ta-c"
+    (<h4> "container ta-c"
       "An interpreted"
-      (<span> 'blue " lisp ")
+      (<span> "blue" 
+        " lisp ")
       "built atop a simple, stable virtual machine" ) ) )
 
 
@@ -160,8 +162,8 @@
     
 
 (de Simple ()
-  (<div> "col pl-xxl pr-xl"
-    (<h1> '(style . `(pack "color: " dark-grey*))
+  (<div> "col"
+    (<h4> '(style . `(pack "color: " dark-grey*))
       "Simple" )
     (<p> NIL
       "PicoLisp, the language, runs on the PicoLisp virtual machine. The \
@@ -169,36 +171,36 @@
       only a single data structure is used internally. Blah blah blah." ) ) )
 
 (de Stable ()
-  (<div> "col pl-xl pr-xxl"
-    (<h1> '(style . `(pack "color: " dark-grey*))
+  (<div> "col"
+    (<h4> '(style . `(pack "color: " dark-grey*))
       "Stable" )
     (<p> NIL
       "PicoLisp is really stable. Blah blah blah." ) ) )
 
 (de Fun ()
-  (<div> "col pl-xxl pr-xl"
-    (<h1> '(style . `(pack "color: " dark-grey*))
+  (<div> "col"
+    (<h4> '(style . `(pack "color: " dark-grey*))
       "Fun" )
     (<p> NIL
       "PicoLisp is really Fun. Blah blah blah." ) ) )
 
 (de Flexible ()
-  (<div> "col pl-xl pr-xxl"
-    (<h1> '(style . `(pack "color: " dark-grey*))
+  (<div> "col"
+    (<h4> '(style . `(pack "color: " dark-grey*))
       "Flexible" )
     (<p> NIL
       "PicoLisp is really Flexible. Blah blah blah." ) ) )
 
 (de DownrightDynamic ()
-  (<div> "col pl-xxl pr-xl"
-    (<h1> '(style . `(pack "color: " dark-grey*))
+  (<div> "col"
+    (<h4> '(style . `(pack "color: " dark-grey*))
       "Downright Dynamic" )
     (<p> NIL
       "PicoLisp is downright dynamic. Blah blah blah." ) ) )
 
 (de Dangerous ()
-  (<div> "col pl-xl pr-xxl"
-    (<h1> '(style . `(pack "color: " dark-grey*))
+  (<div> "col"
+    (<h4> '(style . `(pack "color: " dark-grey*))
       "Dangerous" )
     (<p> NIL
       "PicoLisp is really dangerous. Blah blah blah." ) ) )

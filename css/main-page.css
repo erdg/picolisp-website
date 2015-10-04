@@ -12,7 +12,8 @@ nav
 {
   background: black;
   padding-top: 8px;
-  padding-bottom: 8px;
+  padding-bottom: 32px;
+
 }
 
 nav img {
@@ -26,7 +27,7 @@ nav ul {
 nav a {
   color: white;
   text-transform: uppercase;
-  font-size 1.1em;
+  font-size 1.4em;
   text-decoration: none;
 }
 
@@ -35,10 +36,13 @@ nav .icon-link {
 }
 
 .mob-pt-s {
-  padding-top: 0px;
+  padding-top: inherit;
 }
 
 @media screen and (max-width: 40em) {
+  nav {
+    padding-bottom: 4px;
+  }
   nav a {
     float: left;
   }
@@ -53,25 +57,25 @@ nav .icon-link {
 header 
 {
   background: black;
+  padding-bottom: 32px;
+}
+
+@media screen and (max-width: 40em) {
+  header {
+    padding-bottom: 4px; 
+  }
 }
 
 header h1
 {
   color: white;
-  font-size: 5em;
 }
 
 header h3 
 { 
   color: white;
-  font-size: 3em;
 }
 
-@media screen and (min-height: 768px) {
-  nav img {
-    content: '../img/icon/PicoLisp_Icon_medium.png'
-  }
-}
 
 /*********************/
 /* propaganda stripe */
@@ -81,10 +85,6 @@ header h3
   color: white;
 }
 
-.stripe h1
-{
-  font-size 2em;
-}
 /*************/
 /* demo repl */
 textarea {
