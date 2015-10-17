@@ -126,7 +126,7 @@
 
 (de try-it-repl ()
    (form '(style . `(pack "color: " pico-green*))
-      (gui 'line '(+Style +TextField) "row dark-grey-bg" 24)
+      (gui 'line '(+Style +TextField) "try-it-line dark-grey-bg" 24)
       (gui '(+Style +JS +Button) "vh" "eval"  # visually hidden
         '(prog                                # but need button so we can press enter to eval
           (clr> (: home view))
