@@ -1,0 +1,41 @@
+nav {
+  list-style: none;
+  border-radius: 8px;
+  background: #080808;
+}
+
+nav a {
+  color: #4b4b4b;
+  text-decoration: none;
+}
+
+.to-nav {
+  background-color: #080808;
+  border-radius: 8px;
+  text-decoration: none
+}
+
+.to-nav:hover,
+.to-nav:focus,
+nav a:hover,
+nav a:focus {
+  color: #f05658; /* PL red */
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    background: transparent;
+    z-index: 2;
+  }
+  nav a:hover {
+    color: #f05658; /* PL red */
+  }
+  #primary-nav {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .to-nav {
+    display: none;
+  }
+}

@@ -1,88 +1,69 @@
 body {
-  font-family: 'Inconsolata';
+  font-family: 'Exo';
+  margin: 0;
+  background-color: #0F0F0F;
 }
 
-.blue {
-  color: #6067af;
+.blurry-bg {
+  position: relative;
+  z-index: 0;
 }
 
-/*******/
-/* nav */
-nav
-{
-  background: black;
-  padding-top: 8px;
-  padding-bottom: 32px;
-
+.blurry-bg:before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/icon/PicoLisp_Icon_Xlarge.png");
+  filter: blur(8px);
+  opacity: 0.08;
 }
 
-nav img {
-  padding-top: 8px;
-}
 
-nav ul {
-  margin-bottom: 4px
-}
+/*********/
+/* utils */
 
-nav a {
-  color: white;
-  text-transform: uppercase;
-  font-size 1.4em;
-  text-decoration: none;
-}
+/* colors */
+.green { color: #6dc066 }
+.blue  { color: #6067af }
+.red   { color: #f05658 }
 
-nav .icon-link {
-  padding-right: 8px;
-}
+.black { color: #080808; }
+.darkest-grey {color: #0f0f0f}
+.darker-grey  {color: #212121}
+.dark-grey    {color: #333333}
+.light-grey   {color: #4b4b4b}
+.lighter-grey {color: #989898}
 
-.mob-pt-s {
-  padding-top: inherit;
-}
+.white { color: white }
 
-@media screen and (max-width: 40em) {
-  nav {
-    padding-bottom: 4px;
-  }
-  nav a {
-    float: left;
-  }
-  .mob-pt-s {
-    padding-top: 8px;
-  }
-}
+.black-bg { background-color: #080808; }
+.darker-grey-bg { background-color: #212121; }
+.dark-grey-bg  { background-color: #333333; }
+.white-bg { background-color: white; }
+
+.fw-300 { font-weight: 300; }
+.fw-500 { font-weight: 500; }
+.fw-700 { font-weight: 700; }
 
 
 /**********/
 /* header */
-header 
-{
-  background: black;
-  padding-bottom: 32px;
-}
 
-@media screen and (max-width: 40em) {
-  header {
-    padding-bottom: 4px; 
-  }
-}
-
-header h1
-{
-  color: white;
-}
-
-header h3 
-{ 
-  color: white;
-}
 
 
 /*********************/
 /* propaganda stripe */
 .stripe
 {
-  background: black;
+  background-color: #080808;
   color: white;
+  border-radius: 8px;
 }
 
 /*************/
@@ -97,6 +78,11 @@ fieldset {
   font-family: 'Inconsolata';
 }
 
+.try-it {
+  background-color: #212121;
+  border-radius: 8px;
+}
+
 .try-it-line
 {
   width: 100% !important;
@@ -106,4 +92,19 @@ fieldset {
 .try-it-view:active
 {
   border: none;
+}
+
+.features {
+  font-weight: 300;
+  border-radius: 8px;
+}
+
+.features h4 {
+  color: #080808;   /* PL red */
+  font-weight: 300;
+}
+
+
+footer {
+  border-radius: 8px;
 }

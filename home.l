@@ -2,23 +2,18 @@
 
 (setq *Css 
   (list
+    #"css/normalize.css"
     "css/utils.css" 
+    "css/responsive-utils.css"
     "css/ungrid.css" 
     "css/container.css"
     "css/typography.css"
-    "https://fonts.googleapis.com/css?family=Inconsolata"
+    "https://fonts.googleapis.com/css?family=Exo:700,500,300"
     "css/forms.css"
     "css/buttons.css"
+    "css/nav.css"
+    "css/header.css"
     "css/main-page.css") )
-
-
-########
-# colors
-(setq pico-blue*  "#6067af")
-(setq pico-green* "#6dc066")
-(setq pico-red*   "#f05658")
-(setq light-grey* "#333333")
-(setq dark-grey*  "#2b2b2b")
 
 
 #######
@@ -45,17 +40,26 @@
   (<img> "img/icon/PicoLisp_Icon_large.png" "icon") )
 
 
+# disable autocomplete for try-it repl
+(patch <field> 
+  '(prin "<input type=\"text\" ")
+  '(prin "<input type=\"text\" autocomplete=\"off\" ") )
+
+
 ###########
 # main page
 (de home ()
   (app)
   (action 
-    (html 0 "PicoLisp" *Css NIL
-      (nav)
-      (header)
-      (try-it)
-      (stripe)
-      (features) ) ) )
+    (html 0 "PicoLisp" *Css "blurry-bg"
+      (<div> "container"
+        (to-nav)
+        (header)
+        (try-it)
+        (stripe)
+        (features)
+        (nav)
+        (footer) ) ) ) )
 
 (de go ()
   (server 8080 "!home") )
@@ -67,16 +71,19 @@
   (tag 'nav Attr 2 Prg) )
 
 (de nav ()
-  (<nav> NIL
-    (nav-links) ) )
-
-(de nav-links ()
-  (<ul> "container row ta-c"
-    (<style> "icon-link col va-m"
+  (<nav> '("pl-s pr-s pt-s pb-s" (id . "primary-nav"))
+    (<style> "rwd-img pb-s d-b"
       (small-icon) )
-    (<li> "col va-m mob-pt-s" (<href> "Download" "#"))    # columns, text vertically
-    (<li> "col va-m" (<href> "Documentation" "#"))        # aligned to middle
-    (<li> "col va-m" (<href> "Community" "#")) ) )
+    (<style> "d-b pb-s tt-u"
+      (<li> NIL (<href> "Download" "#"))        
+      (<li> NIL (<href> "Documentation" "#"))  
+      (<li> NIL  (<href> "Community" "#")) ) ) )
+
+# link to primary nav, at the bottom on mobile.
+# hidden on larger screens
+(de to-nav ()
+  (<style> "to-nav black-grey-bg light-grey mt-s pl-s pt-s pr-s pb-s"
+    (<href> "menu" "#primary-nav") ) )
 
 
 ########
@@ -85,11 +92,11 @@
   (tag 'header Attr 2 Prg) )
 
 (de header ()
-  (<header> "pt-s pb-s"
-    (<h1> "ta-c fw-b"
+  (<header> "banner black-bg mt-l mb-l pt-l pb-l pl-s pr-s"
+    (<h1> "white ta-c fw-b tab-pt-xl"
       "PicoLisp" )
     (header-icon)
-    (<h3> "ta-c"
+    (<h3> "white ta-c tab-pb-xl"
       "programming simplified" ) ) )
 
 (de header-icon ()
@@ -100,24 +107,26 @@
 ########
 # try it
 (de try-it ()
-  (<div> '(style . `(pack "background: " dark-grey*))
-    (<div> "container row pt-s pb-s" 
-      (<div> "col" 
-        (<h4> '(style . `(pack "color: " pico-green*))
-          "Try it" )
-        (<h6> '(style . "color: #d3d3d3")
-          "Type PicoLisp expressions here" )
-        (try-it-repl) )
+  (<div> "try-it dark-grey-bg pl-s pt-s pr-s pb-m"
+    (<div> "row"
+      (<div> '("col" (style . "width: 11%")) NIL) # spacer column, hidden for mobile.
       (<div> "col"
-        (<h4> '(style . `(pack "color: " pico-red*))
+        (<h4> "green mt-0 mb-0 fw-300"
+          "Try it" )
+        (<p> "lighter-grey"
+          "Type PicoLisp expressions here. Hit enter to evaluate." )
+        (try-it-repl) )
+      (<div> '("col" (style . "width: 8%")) NIL)  # spacer column
+      (<div> "col"
+        (<h4> "red mb-0 fw-300"
           "Got 5 minutes?" )
-        (<h6> '(style . "color: #d3d3d3")
-          "Type help to start the tutorial" ) ) ) ) )
+        (<p> "lighter-grey"
+          "Type help to start the tutorial." ) )
+      (<div> '("col" (style . "width: 11%")) NIL) ) ) )
 
 (de try-it-repl ()
-   (form '("row" (style . `(pack "color: " pico-green*)))
-      (<style> '(style . `(pack "background: " light-grey*))
-        (gui 'line '(+Style +TextField) "try-it-line ml-a mr-a" 42) )
+   (form '(style . `(pack "color: " pico-green*))
+      (gui 'line '(+Style +TextField) "row dark-grey-bg" 24)
       (gui '(+Style +JS +Button) "vh" "eval"  # visually hidden
         '(prog                                # but need button so we can press enter to eval
           (clr> (: home view))
@@ -131,15 +140,14 @@
               (when *Msg (prinl @) (off *Msg)) )
             (clr> (: home line)) ) ) )
       (--)
-      (<style> '("mb-s" (style . `(pack "background: " dark-grey*)))
-        (gui 'view '(+Style +FileField) "try-it-view pt-s ml-a mr-a" '(tmp "repl") 48 4) ) ) )
+      (gui 'view '(+Style +FileField) "try-it-view row darker-grey-bg" '(tmp "repl") 24 3) ) )
 
 
 ###################
 # propaganda stripe 
 (de stripe ()
-  (<div> "stripe pt-l pb-l"
-    (<h4> "container ta-c"
+  (<div> "stripe mt-l mb-l pt-s pb-s pl-s pr-s"
+    (<h4> "ta-c"
       "An interpreted"
       (<span> "blue" 
         " lisp ")
@@ -148,33 +156,48 @@
 
 ######################
 # highlighted features
+
+# too much <div> bullshit. need to finish responsive utils.
 (de features ()
-  (<div> "features container"
+  (<div> "features 
+          mt-l mb-l
+          pt-s pb-s pl-s pr-s
+          fw-300
+          white-bg"
     (<div> "row" 
+      (<div> '("col" (style . "width: 11%")) NIL)
       (Simple)
-      (Stable) ) 
-    (<div> "row"
+      (<div> '("col" (style . "width: 8%")) NIL)
+      (Stable)
+      (<div> '("col" (style . "width: 11%")) NIL) )
+    (<div> "row" 
+      (<div> '("col" (style . "width: 11%")) NIL)
       (Fun)
-      (Flexible) )
-    (<div> "row"
+      (<div> '("col" (style . "width: 8%")) NIL)
+      (Flexible)
+      (<div> '("col" (style . "width: 11%")) NIL) )
+    (<div> "row" 
+      (<div> '("col" (style . "width: 11%")) NIL)
       (DownrightDynamic)
-      (Dangerous) ) ) )
-    
+      (<div> '("col" (style . "width: 8%")) NIL)
+      (Dangerous)
+      (<div> '("col" (style . "width: 11%")) NIL) ) ) )
+
 
 (de Simple ()
-  (<div> "col"
-    (<h4> '(style . `(pack "color: " dark-grey*))
+  (<div> "col mb-l"
+    (<h4> "black mt-0 mb-0"
       "Simple" )
-    (<p> NIL
+    (<p> "fw-300"
       "PicoLisp, the language, runs on the PicoLisp virtual machine. The \
       virtual machine architecture was designed to be as simple as possible;\
       only a single data structure is used internally. Blah blah blah." ) ) )
 
 (de Stable ()
-  (<div> "col"
-    (<h4> '(style . `(pack "color: " dark-grey*))
+  (<div> "col mb-l"
+    (<h4> "black mt-0 mb-0"
       "Stable" )
-    (<p> NIL
+    (<p> "fw-300 mb-s"
       "PicoLisp is really stable. Blah blah blah." ) ) )
 
 (de Fun ()
@@ -205,3 +228,18 @@
     (<p> NIL
       "PicoLisp is really dangerous. Blah blah blah." ) ) )
 
+########
+# footer
+
+(de <footer> (Attr . Prg)
+  (tag 'footer Attr 2 Prg) )
+
+(de footer ()
+  (<footer> "black-bg mt-s mb-l pt-s pb-s pl-s pr-s"
+    (pico-powered) ) )
+
+(de pico-powered ()
+  (<img> 
+    "img/powered-by/PicoLisp_PoweredBy_white_small.png" 
+    "Powerd by PicoLisp") )
+    

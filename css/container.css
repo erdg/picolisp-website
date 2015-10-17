@@ -1,6 +1,7 @@
 /* CSS containers for PicoLisp */
 .container {
   position: relative;
+  display: block;
   width: 100%;
   max-width: 1080;
   margin: 0 auto;

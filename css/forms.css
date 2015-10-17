@@ -12,6 +12,7 @@ select {
   background-color: #333333;
   border: none;
   font-size: 1.2em;
+  font-family: 'Inconsolata';
   box-shadow: none;
   box-sizing: border-box;
 }
