@@ -164,7 +164,7 @@
           pt-s pb-s pl-s pr-s
           fw-300
           white-bg"
-    (<div> "row" 
+    (<div> "row tab-pt-xl"
       (<div> '("col" (style . "width: 11%")) NIL)
       (Simple)
       (<div> '("col" (style . "width: 8%")) NIL)
@@ -201,32 +201,41 @@
       "PicoLisp is really stable. Blah blah blah." ) ) )
 
 (de Fun ()
-  (<div> "col"
-    (<h4> '(style . `(pack "color: " dark-grey*))
+  (<div> "col mb-l"
+    (<h4> "black mt-0 mb-0"
       "Fun" )
     (<p> NIL
       "PicoLisp is really Fun. Blah blah blah." ) ) )
 
 (de Flexible ()
-  (<div> "col"
-    (<h4> '(style . `(pack "color: " dark-grey*))
+  (<div> "col mb-l"
+    (<h4> "black mt-0 mb-0"
       "Flexible" )
     (<p> NIL
       "PicoLisp is really Flexible. Blah blah blah." ) ) )
 
 (de DownrightDynamic ()
-  (<div> "col"
-    (<h4> '(style . `(pack "color: " dark-grey*))
+  (<div> "col mb-l"
+    (<h4> "black mt-0 mb-0"
       "Downright Dynamic" )
     (<p> NIL
       "PicoLisp is downright dynamic. Blah blah blah." ) ) )
 
 (de Dangerous ()
-  (<div> "col"
-    (<h4> '(style . `(pack "color: " dark-grey*))
+  (<div> "col mb-l"
+    (<h4> "black mt-0 mb-0"
       "Dangerous" )
     (<p> NIL
-      "PicoLisp is really dangerous. Blah blah blah." ) ) )
+      "PicoLisp is for programmers who want to control their environment, at
+       all level, from the application domain down to the bare metal, who 
+       want to use a transparent and simple - yet universal - programming 
+       model, and who want to know exactly what is going on." )
+    (<p> NIL
+      "It does not pretend to be easy to learn. There are plenty of languages
+       that do. It is not for people who don't care what's under the hood, who 
+       just want to get their application running. They might be better served 
+       with some standard, \"safe\" black-box, which may be easier to learn, 
+       and which allegedly better protects them from their own mistakes." ) ) )
 
 ########
 # footer

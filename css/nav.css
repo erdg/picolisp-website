@@ -32,8 +32,8 @@ nav a:focus {
   }
   #primary-nav {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 16px;
+    left: 16px;
   }
   .to-nav {
     display: none;
