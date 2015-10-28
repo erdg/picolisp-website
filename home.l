@@ -10,7 +10,6 @@
     "css/typography.css"
     "https://fonts.googleapis.com/css?family=Exo:700,500,300"
     "css/forms.css"
-    "css/buttons.css"
     "css/nav.css"
     "css/header.css"
     "css/main-page.css") )
@@ -51,15 +50,14 @@
 (de home ()
   (app)
   (action 
-    (html 0 "PicoLisp" *Css "blurry-bg"
-      (<div> "container"
+    (html 0 "PicoLisp" *Css "pl-code-bg"
         (to-nav)
         (header)
         (try-it)
         (stripe)
-        (features)
-        (nav)
-        (footer) ) ) ) )
+      (features)
+      (nav)
+      (footer) ) ) )
 
 (de go ()
   (server 8080 "!home") )
@@ -71,19 +69,19 @@
   (tag 'nav Attr 2 Prg) )
 
 (de nav ()
-  (<nav> '("pl-s pr-s pt-s pb-s" (id . "primary-nav"))
+  (<nav> '("pl-s pr-s pt-m pb-m" (id . "primary-nav"))
     (<style> "rwd-img pb-s d-b"
       (small-icon) )
-    (<style> "d-b pb-s tt-u"
-      (<li> NIL (<href> "Download" "#"))        
-      (<li> NIL (<href> "Documentation" "#"))  
+    (<style> "d-b tt-u"
+      (<li> "pb-s" (<href> "Download" "#"))        
+      (<li> "pb-s" (<href> "Documentation" "#"))  
       (<li> NIL  (<href> "Community" "#")) ) ) )
 
 # link to primary nav, at the bottom on mobile.
 # hidden on larger screens
 (de to-nav ()
-  (<style> "to-nav black-grey-bg light-grey mt-s pl-s pt-s pr-s pb-s"
-    (<href> "menu" "#primary-nav") ) )
+  (<style> "to-nav"
+    (<href> "" "#primary-nav") ) )
 
 
 ########
@@ -92,12 +90,17 @@
   (tag 'header Attr 2 Prg) )
 
 (de header ()
-  (<header> "banner black-bg mt-l mb-l pt-l pb-l pl-s pr-s"
-    (<h1> "white ta-c fw-b tab-pt-xl"
-      "PicoLisp" )
-    (header-icon)
-    (<h3> "white ta-c tab-pb-xl"
-      "programming simplified" ) ) )
+    (<div> "container"
+      (<header> "mt-0 mb-0 
+                 pt-l pb-l pl-s pr-s
+                 big-pt-xl big-pb-xl"
+        (<h1> "white ta-c fw-b
+              mt-0 mb-l"
+          "PicoLisp" )
+        (header-icon)
+        (<h3> "white ta-c fs-i
+               mt-l mb-0"
+          "programming simplified" ) ) ) )
 
 (de header-icon ()
   (<style> "rwd-img d-b ml-a mr-a"
@@ -107,26 +110,24 @@
 ########
 # try it
 (de try-it ()
-  (<div> "try-it dark-grey-bg pl-s pt-s pr-s pb-m"
-    (<div> "row"
-      (<div> '("col" (style . "width: 11%")) NIL) # spacer column, hidden for mobile.
-      (<div> "col"
-        (<h4> "green mt-0 mb-0 fw-300"
+  (<div> "try-it dark-grey-bg pt-m pb-m big-pt-l big-pb-l"
+    (<div> "container row"
+      (<div> "col big-pl-xl big-pr-m"
+        (<h4> "row green mt-0 mb-0 fw-300"
           "Try it" )
-        (<p> "lighter-grey"
+        (<p> "row lighter-grey"
           "Type PicoLisp expressions here. Hit enter to evaluate." )
         (try-it-repl) )
       (<div> '("col" (style . "width: 8%")) NIL)  # spacer column
-      (<div> "col"
-        (<h4> "red mb-0 fw-300"
+      (<div> "col big-pl-m big-pr-xl"
+        (<h4> "row red mb-0 fw-300"
           "Got 5 minutes?" )
-        (<p> "lighter-grey"
-          "Type help to start the tutorial." ) )
-      (<div> '("col" (style . "width: 11%")) NIL) ) ) )
+        (<p> "row lighter-grey"
+          "Type help to start the tutorial, or just start firing off PicoLisp one-liners." ) ) ) ) )
 
 (de try-it-repl ()
-   (form '(style . `(pack "color: " pico-green*))
-      (gui 'line '(+Style +TextField) "try-it-line dark-grey-bg" 24)
+   (form NIL 
+      (gui 'line '(+Style +TextField) "try-it-line dark-grey-bg row pl-s pt-s pr-s pb-s" 24)
       (gui '(+Style +JS +Button) "vh" "eval"  # visually hidden
         '(prog                                # but need button so we can press enter to eval
           (clr> (: home view))
@@ -140,14 +141,17 @@
               (when *Msg (prinl @) (off *Msg)) )
             (clr> (: home line)) ) ) )
       (--)
-      (gui 'view '(+Style +FileField) "try-it-view row darker-grey-bg" '(tmp "repl") 24 3) ) )
+      (gui 'view '(+Style +FileField) "try-it-view darker-grey-bg row" '(tmp "repl") 24 3) ) )
 
 
 ###################
 # propaganda stripe 
 (de stripe ()
-  (<div> "stripe mt-l mb-l pt-s pb-s pl-s pr-s"
-    (<h4> "ta-c"
+  (<div> "stripe fs-i
+          mt-0 mb-0 
+          pt-s pb-s pl-s pr-s
+          big-pt-xl big-pb-xl"
+    (<h4> "container mt-0 mb-0 ta-c"
       "An interpreted"
       (<span> "blue" 
         " lisp ")
@@ -156,95 +160,132 @@
 
 ######################
 # highlighted features
-
-# too much <div> bullshit. need to finish responsive utils.
 (de features ()
-  (<div> "features 
-          mt-l mb-l
-          pt-s pb-s pl-s pr-s
+  (<div> "features
+          mt-0 mb-0
+          pt-m pb-m big-pt-xl big-pb-xl
           fw-300
           white-bg"
-    (<div> "row tab-pt-xl"
-      (<div> '("col" (style . "width: 11%")) NIL)
-      (Simple)
+    (<div> "container row"
+      (<div> "col big-pl-l big-pr-l"
+        (Simple)
+        (Flexible)
+        (DownrightDynamic) )
       (<div> '("col" (style . "width: 8%")) NIL)
-      (Stable)
-      (<div> '("col" (style . "width: 11%")) NIL) )
-    (<div> "row" 
-      (<div> '("col" (style . "width: 11%")) NIL)
-      (Fun)
-      (<div> '("col" (style . "width: 8%")) NIL)
-      (Flexible)
-      (<div> '("col" (style . "width: 11%")) NIL) )
-    (<div> "row" 
-      (<div> '("col" (style . "width: 11%")) NIL)
-      (DownrightDynamic)
-      (<div> '("col" (style . "width: 8%")) NIL)
-      (Dangerous)
-      (<div> '("col" (style . "width: 11%")) NIL) ) ) )
-
+      (<div> "col big-pl-l big-pr-l"
+        (Stable)
+        (Fun)
+        (Dangerous) ) ) ) )
+    
 
 (de Simple ()
-  (<div> "col mb-l"
+  (<div> "row mb-l"
     (<h4> "black mt-0 mb-0"
       "Simple" )
     (<p> "fw-300"
-      "PicoLisp, the language, runs on the PicoLisp virtual machine. The \
-      virtual machine architecture was designed to be as simple as possible;\
-      only a single data structure is used internally. Blah blah blah." ) ) )
+      "PicoLisp is a programming environment that prides itself on it's powerful
+      simplicity. It gives the programmer the tools to create complex programs
+      with simple code. Basically, it's super efficient." )
+    (<p> "fw-300"
+      "First of all, PicoLisp is a virtual machine architecture, and then a 
+      programming language. Its internal structures are simple enough, allowing
+      the experienced programmer to fully understand what's going on under the
+      hood. In fact, at the lowest level, the VM is built up from a 
+      single data structure, " (<href> "the cell" "#") ". The high-level
+      constructs of the programming language map directly to these cells, 
+      making the whole system both understandable and predictable." )
+    (<p> "fw-300"
+      "Relax into the PicoLisp mindset. All your thoughts and all your
+      programs are simply a bunch of cells making connections, and sharing data
+      amongst themselves." ) ) )
 
 (de Stable ()
-  (<div> "col mb-l"
+  (<div> "row mb-l"
     (<h4> "black mt-0 mb-0"
       "Stable" )
     (<p> "fw-300 mb-s"
-      "PicoLisp is really stable. Blah blah blah." ) ) )
+      "PicoLisp has been under development since the late 80's. Both the 
+      language and the virtual machine have stabilized in that time. You 
+      can count on your programs running tomorrow and ten years from
+      tomorrow." ) ) )
 
 (de Fun ()
-  (<div> "col mb-l"
+  (<div> "row mb-l"
     (<h4> "black mt-0 mb-0"
       "Fun" )
     (<p> NIL
-      "PicoLisp is really Fun. Blah blah blah." ) ) )
+      "PicoLisp has a lot of features that really make it a pleasure to program.
+      Check it!" )
+    (<ul> "pl-m pr-m big-pl-l big-pr-l"
+      (<style> "pb-m"
+        (<li> NIL 
+          (<href> "GUI Framework" "#")
+          (<p> NIL
+            "PicoLisp ships with all you need to get started writing
+            browser-based applications. Just add love and a bit of CSS." ) )
+        (<li> NIL 
+          (<href> "Integrated Database" "#")
+          (<p> NIL 
+            "Database functionality is built into the core of the language.
+            PicoLisp " (<span> "fs-i" "is") " a database query and manipulation
+            language. It's possible to build multi-user databases, distributed
+            across many machines or in a cloud. Such a database can be optimally
+            fine tuned, as all its levels are under the developer's control." ) )
+        (<li> NIL 
+          (<href> "Native C calls" "#")
+          (<p> NIL
+            "Interface with almost any C library function, manipulate C data 
+            structures in memory, and call lisp functions from your C code. All 
+            this without writing any glue code or include files. Heck, you can 
+            even call those C functions from the REPL." ) )
+        (<li> NIL 
+          (<href> "Java Interoperability" "#")
+          (<p> NIL
+            "This seems to be important for a lot of people these days. 
+            Sure, why not? PicoLisp can interface directly to a running JVM,
+            giving you dynamic access to all those libraries and classes or 
+            whatever." ) ) ) ) ) )
+
 
 (de Flexible ()
-  (<div> "col mb-l"
+  (<div> "row mb-l"
     (<h4> "black mt-0 mb-0"
       "Flexible" )
     (<p> NIL
-      "PicoLisp is really Flexible. Blah blah blah." ) ) )
+      "It's lisp, afterall. It's a programming language best suited for
+      reprogramming " (<span> "fs-i" "itself") ". Into functional programming? Rock on. OOP? PicoLisp
+      has an elegant, unobtrusive, totally optional " (<href> "object system" "#") 
+      ". Dreaming of a new DSL? Trivial. Explore a syntax of nested function calls, 
+      bend the language to the task at hand, metaprogram yourself to the moon. 
+      We'll help you build a rocket." ) ) )
 
 (de DownrightDynamic ()
-  (<div> "col mb-l"
+  (<div> "row mb-l"
     (<h4> "black mt-0 mb-0"
       "Downright Dynamic" )
     (<p> NIL
       "PicoLisp is downright dynamic. Blah blah blah." ) ) )
 
 (de Dangerous ()
-  (<div> "col mb-l"
+  (<div> "row mb-l"
     (<h4> "black mt-0 mb-0"
       "Dangerous" )
     (<p> NIL
-      "PicoLisp is for programmers who want to control their environment, at
-       all level, from the application domain down to the bare metal, who 
-       want to use a transparent and simple - yet universal - programming 
-       model, and who want to know exactly what is going on." )
+      "PicoLisp is for programmers who want to understand their environment, at
+       all levels, from the application domain down to the bare metal, who want 
+       to use a transparent and simple - yet universal - programming model, and 
+       who want to know exactly what is going on." )
     (<p> NIL
-      "It does not pretend to be easy to learn. There are plenty of languages
-       that do. It is not for people who don't care what's under the hood, who 
-       just want to get their application running. They might be better served 
-       with some standard, \"safe\" black-box, which may be easier to learn, 
-       and which allegedly better protects them from their own mistakes." ) ) )
+      "It does not pretend to be easy to learn, nor will it make any attempt 
+      to protect you from yourself. You've been warned." ) ) )
 
 ########
 # footer
-
 (de <footer> (Attr . Prg)
   (tag 'footer Attr 2 Prg) )
 
 (de footer ()
-  (<footer> "black-bg mt-s mb-l pt-s pb-s pl-s pr-s"
+  (<footer> "black-bg mt-0 mb-0 pt-s pb-s pl-s pr-s"
     (pico-powered) ) )
 
 (de pico-powered ()

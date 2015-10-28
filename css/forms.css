@@ -7,7 +7,6 @@ input[type="url"],
 input[type="password"],
 textarea,
 select {
-  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   color: #6dc066;
   background-color: #333333;
   border: none;
@@ -48,7 +47,6 @@ textarea:focus,
 select:focus {
   outline: 0;
   font-family: 'Inconsolata';
-  padding: 6px 10px; 
 }
 
 label,

@@ -1,6 +1,5 @@
 nav {
   list-style: none;
-  border-radius: 8px;
   background: #080808;
 }
 
@@ -10,16 +9,28 @@ nav a {
 }
 
 .to-nav {
-  background-color: #080808;
-  border-radius: 8px;
-  text-decoration: none
+  text-decoration: none;
+  padding: 16px;
+  display: block;
 }
 
-.to-nav:hover,
-.to-nav:focus,
+.to-nav:before {
+  content: "";
+  position:absolute;
+  right: 2em;
+  top: 1em;
+  width: 1.6em;
+  height: 0.2em;
+  background: #6dc066;  /* PL green */
+  box-shadow: 
+    0 0.4em 0 0 #6dc066,
+    0 0.8em 0 0 #6dc066;
+}
+
 nav a:hover,
 nav a:focus {
-  color: #f05658; /* PL red */
+    color: #f05658;
+    border: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -27,13 +38,10 @@ nav a:focus {
     background: transparent;
     z-index: 2;
   }
-  nav a:hover {
-    color: #f05658; /* PL red */
-  }
   #primary-nav {
     position: absolute;
-    top: 16px;
-    left: 16px;
+    top: 44px;
+    left: 44px;
   }
   .to-nav {
     display: none;

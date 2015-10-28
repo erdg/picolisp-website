@@ -1,64 +1,275 @@
-/* tablet */
-@media screen and (min-width: 768px) {
-  .tab-mt-l {
-    margin-top: 16px;
-  }
-  .tab-mt-xl {
-    margin-top: 32px;
-  }
-  .tab-mt-xxl {
-    margin-top: 64px;
-  }
-  .tab-pt-l {
-    padding-top: 16px;
-  }
-  .tab-pt-xl {
-    padding-top: 32px;
-  }
-  .tab-pt-xxl {
-    padding-top: 64px;
-  }
-  .tab-mr-l {
-    margin-right: 16px;
-  }
-  .tab-mr-xl {
-    margin-right: 32px;
-  }
-  .tab-mr-xxl {
-    margin-right: 64px;
-  }
-  .tab-pr-l {
-    padding-right: 16px;
-  }
-  .tab-pr-xl {
-    padding-right: 32px;
-  }
-  .tab-pr-xxl {
-    padding-right: 64px;
-  }
-  .tab-mb-l {
-    margin-bottom: 16px;
-  }
-  .tab-mb-xl {
-    margin-bottom: 32px;
-  }
-  .tab-mb-xxl {
-    margin-bottom: 64px;
-  }
-  .tab-pb-l {
-    padding-bottom: 16px;
-  }
-  .tab-pb-xl {
-    padding-bottom: 32px;
-  }
-  .tab-pb-xxl {
-    padding-bottom: 64px;
-  }
+/* margin-left */
+.ml-xxs {
+  margin-left: 2px;
+}
+.ml-xs {
+  margin-left: 4px;
+}
+.ml-s {
+  margin-left: 8px;
+}
+.ml-m {
+  margin-left: 16px;
+}
+.ml-l {
+  margin-left: 32px;
+}
+.ml-xl {
+  margin-left: 64px;
+}
+.ml-xxl {
+  margin-left: 128px;
 }
 
-/* laptop */
-@media screen and (min-width: 960px) {
-  .lap-pt-xxl {
+/* padding-left */
+.pl-xxs {
+  padding-left: 2px;
+}
+.pl-xs {
+  padding-left: 4px;
+}
+.pl-s {
+  padding-left: 8px;
+}
+.pl-m {
+  padding-left: 16px;
+}
+.pl-l {
+  padding-left: 32px;
+}
+.pl-xl {
+  padding-left: 64px;
+}
+.pl-xxl {
+  padding-left: 128px;
+}
+
+/* margin-top */
+.mt-xxs {
+  margin-top: 2px;
+}
+.mt-xs {
+  margin-top: 4px;
+}
+.mt-s {
+  margin-top: 8px;
+}
+.mt-m {
+  margin-top: 16px;
+}
+.mt-l {
+  margin-top: 32px;
+}
+.mt-xl {
+  margin-top: 64px;
+}
+.mt-xxl {
+  margin-top: 128px;
+}
+
+/* padding-top */
+.pt-xxs {
+  padding-top: 2px;
+}
+.pt-xs {
+  padding-top: 4px;
+}
+.pt-s {
+  padding-top: 8px;
+}
+.pt-m {
+  padding-top: 16px;
+}
+.pt-l {
+  padding-top: 32px;
+}
+.pt-xl {
+  padding-top: 64px;
+}
+.pt-xxl {
+  padding-top: 128px;
+}
+
+/* margin-right */
+.mr-xxs {
+  margin-right: 2px;
+}
+.mr-xs {
+  margin-right: 4px;
+}
+.mr-s {
+  margin-right: 8px;
+}
+.mr-m {
+  margin-right: 16px;
+}
+.mr-l {
+  margin-right: 32px;
+}
+.mr-xl {
+  margin-right: 64px;
+}
+.mr-xxl {
+  margin-right: 128px;
+}
+
+/* padding-right */
+.pr-xxs {
+  padding-right: 2px;
+}
+.pr-xs {
+  padding-right: 4px;
+}
+.pr-s {
+  padding-right: 8px;
+}
+.pr-m {
+  padding-right: 16px;
+}
+.pr-l {
+  padding-right: 32px;
+}
+.pr-xl {
+  padding-right: 64px;
+}
+.pr-xxl {
+  padding-right: 128px;
+}
+
+/* margin-bottom */
+.mb-xxs {
+  margin-bottom: 2px;
+}
+.mb-xs {
+  margin-bottom: 4px;
+}
+.mb-s {
+  margin-bottom: 8px;
+}
+.mb-m {
+  margin-bottom: 16px;
+}
+.mb-l {
+  margin-bottom: 32px;
+}
+.mb-xl {
+  margin-bottom: 64px;
+}
+.mb-xxl {
+  margin-bottom: 128px;
+}
+
+/* padding-bottom */
+.pb-xxs {
+  padding-bottom: 2px;
+}
+.pb-xs {
+  padding-bottom: 4px;
+}
+.pb-s {
+  padding-bottom: 8px;
+}
+.pb-m {
+  padding-bottom: 16px;
+}
+.pb-l {
+  padding-bottom: 32px;
+}
+.pb-xl {
+  padding-bottom: 64px;
+}
+.pb-xxl {
+  padding-bottom: 128px;
+}
+
+/* big screens... whatever that means */
+@media screen and (min-width: 768px) {  /* 768px, I guess. Or whatever you want it to be. */
+
+  /* margin-left */
+  .big-ml-l {
+    margin-left: 32px;
+  }
+  .big-ml-xl {
+    margin-left: 64px;
+  }
+  .big-ml-xxl {
+    margin-left: 128px;
+  }
+  
+  /* padding-left */
+  .big-pl-l {
+    padding-left: 32px;
+  }
+  .big-pl-xl {
+    padding-left: 64px;
+  }
+  .big-pl-xxl {
+    padding-left: 128px;
+  }
+
+  /* margin-top: */
+  .big-mt-l {
+    margin-top: 32px;
+  }
+  .big-mt-xl {
+    margin-top: 64px;
+  }
+  .big-mt-xxl {
+    margin-top: 128px;
+  }
+
+  /* padding-top */
+  .big-pt-l {
+    padding-top: 32px;
+  }
+  .big-pt-xl {
     padding-top: 64px;
+  }
+  .big-pt-xxl {
+    padding-top: 128px;
+  }
+
+  /* margin-right */
+  .big-mr-l {
+    margin-right: 32px;
+  }
+  .big-mr-xl {
+    margin-right: 64px;
+  }
+  .big-mr-xxl {
+    margin-right: 128px;
+  }
+  
+  /* padding-right */
+  .big-pr-l {
+    padding-right: 32px;
+  }
+  .big-pr-xl {
+    padding-right: 64px;
+  }
+  .big-pr-xxl {
+    padding-right: 128px;
+  }
+
+  /* margin-bottom */
+  .big-mb-l {
+    margin-bottom: 32px;
+  }
+  .big-mb-xl {
+    margin-bottom: 64px;
+  }
+  .big-mb-xxl {
+    margin-bottom: 128px;
+  }
+
+  /* padding-bottom */
+  .big-pb-l {
+    padding-bottom: 32px;
+  }
+  .big-pb-xl {
+    padding-bottom: 64px;
+  }
+  .big-pb-xxl {
+    padding-bottom: 128px;
   }
 }
