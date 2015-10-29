@@ -113,14 +113,14 @@
   (<div> "try-it dark-grey-bg pt-m pb-m big-pt-l big-pb-l"
     (<div> "container row"
       (<div> "col big-pl-xl big-pr-m"
-        (<h4> "row green mt-0 mb-0 fw-300"
+        (<h4> "row green mt-0 mb-0 fw-500"
           "Try it" )
         (<p> "row lighter-grey"
           "Type PicoLisp expressions here. Hit enter to evaluate." )
         (try-it-repl) )
       (<div> '("col" (style . "width: 8%")) NIL)  # spacer column
       (<div> "col big-pl-m big-pr-xl"
-        (<h4> "row red mb-0 fw-300"
+        (<h4> "row red mb-0 fw-500"
           "Got 5 minutes?" )
         (<p> "row lighter-grey"
           "Type help to start the tutorial, or just start firing off PicoLisp one-liners." ) ) ) ) )
@@ -149,8 +149,8 @@
 (de stripe ()
   (<div> "stripe fs-i
           mt-0 mb-0 
-          pt-s pb-s pl-s pr-s
-          big-pt-xl big-pb-xl"
+          pt-m pb-m pl-s pr-s
+          big-pt-l big-pb-l"
     (<h4> "container mt-0 mb-0 ta-c"
       "An interpreted"
       (<span> "blue" 
@@ -164,29 +164,28 @@
   (<div> "features
           mt-0 mb-0
           pt-m pb-m big-pt-xl big-pb-xl
-          fw-300
           white-bg"
     (<div> "container row"
       (<div> "col big-pl-l big-pr-l"
         (Simple)
-        (Flexible)
-        (DownrightDynamic) )
+        (Fun) )
       (<div> '("col" (style . "width: 8%")) NIL)
       (<div> "col big-pl-l big-pr-l"
         (Stable)
-        (Fun)
+        (Flexible)
+        (UnabashedlyDynamic)
         (Dangerous) ) ) ) )
     
 
 (de Simple ()
   (<div> "row mb-l"
-    (<h4> "black mt-0 mb-0"
+    (<h4> "black fw-500 mt-0 mb-0"
       "Simple" )
-    (<p> "fw-300"
+    (<p> NIL
       "PicoLisp is a programming environment that prides itself on it's powerful
       simplicity. It gives the programmer the tools to create complex programs
       with simple code. Basically, it's super efficient." )
-    (<p> "fw-300"
+    (<p> NIL
       "First of all, PicoLisp is a virtual machine architecture, and then a 
       programming language. Its internal structures are simple enough, allowing
       the experienced programmer to fully understand what's going on under the
@@ -194,16 +193,16 @@
       single data structure, " (<href> "the cell" "#") ". The high-level
       constructs of the programming language map directly to these cells, 
       making the whole system both understandable and predictable." )
-    (<p> "fw-300"
+    (<p> NIL
       "Relax into the PicoLisp mindset. All your thoughts and all your
-      programs are simply a bunch of cells making connections, and sharing data
+      programs are simply a bunch of cells, making connections and sharing data
       amongst themselves." ) ) )
 
 (de Stable ()
   (<div> "row mb-l"
-    (<h4> "black mt-0 mb-0"
+    (<h4> "black fw-500 mt-0 mb-0"
       "Stable" )
-    (<p> "fw-300 mb-s"
+    (<p> "mb-s"
       "PicoLisp has been under development since the late 80's. Both the 
       language and the virtual machine have stabilized in that time. You 
       can count on your programs running tomorrow and ten years from
@@ -211,7 +210,7 @@
 
 (de Fun ()
   (<div> "row mb-l"
-    (<h4> "black mt-0 mb-0"
+    (<h4> "black fw-500 mt-0 mb-0"
       "Fun" )
     (<p> NIL
       "PicoLisp has a lot of features that really make it a pleasure to program.
@@ -222,15 +221,14 @@
           (<href> "GUI Framework" "#")
           (<p> NIL
             "PicoLisp ships with all you need to get started writing
-            browser-based applications. Just add love and a bit of CSS." ) )
+            web applications. Just add love and a bit of CSS." ) )
         (<li> NIL 
           (<href> "Integrated Database" "#")
           (<p> NIL 
             "Database functionality is built into the core of the language.
             PicoLisp " (<span> "fs-i" "is") " a database query and manipulation
-            language. It's possible to build multi-user databases, distributed
-            across many machines or in a cloud. Such a database can be optimally
-            fine tuned, as all its levels are under the developer's control." ) )
+            language. Build multi-user databases, distributed across many 
+            machines or in a cloud, with a modest, lean technology stack." ) )
         (<li> NIL 
           (<href> "Native C calls" "#")
           (<p> NIL
@@ -249,7 +247,7 @@
 
 (de Flexible ()
   (<div> "row mb-l"
-    (<h4> "black mt-0 mb-0"
+    (<h4> "black fw-500 mt-0 mb-0"
       "Flexible" )
     (<p> NIL
       "It's lisp, afterall. It's a programming language best suited for
@@ -259,16 +257,21 @@
       bend the language to the task at hand, metaprogram yourself to the moon. 
       We'll help you build a rocket." ) ) )
 
-(de DownrightDynamic ()
+(de UnabashedlyDynamic ()
   (<div> "row mb-l"
-    (<h4> "black mt-0 mb-0"
-      "Downright Dynamic" )
+    (<h4> "black fw-500 mt-0 mb-0"
+      "Unabashedly Dynamic" )
     (<p> NIL
-      "PicoLisp is downright dynamic. Blah blah blah." ) ) )
+      "PicoLisp doesn't give a fuck. It tries to be as dynamic as possible. 
+      All decisions - matters like memory management, dynamic symbol binding,
+      and late method binding - are delayed until runtime. Entire environments
+      are first-class citizens. There is no compiler." )
+    (<p> NIL
+      "It's a breath of fresh air in this stagnant, statically typed world." ) ) )
 
 (de Dangerous ()
   (<div> "row mb-l"
-    (<h4> "black mt-0 mb-0"
+    (<h4> "black fw-500 mt-0 mb-0"
       "Dangerous" )
     (<p> NIL
       "PicoLisp is for programmers who want to understand their environment, at

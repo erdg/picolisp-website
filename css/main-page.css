@@ -101,7 +101,6 @@ fieldset {
 }
 
 .features {
-  font-weight: 300;
   z-index: 1;
 }
 
@@ -110,10 +109,15 @@ fieldset {
 }
 
 .features a {
-  font-size: 1.2em;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
   color: #6067af;
+  /*color: #f05658;*/
+  /*color: #6dc066;*/
+}
+
+.features ul a {
+  font-size: 1.2em;
 }
 
 .features ul {
@@ -124,7 +128,7 @@ fieldset {
 }
 
 .features p {
-  color: #4b4b4b;
+  color: #686868;
 }
 
 .features h4 {
