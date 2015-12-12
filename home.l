@@ -56,8 +56,7 @@
         (try-it)
         (stripe)
       (features)
-      (nav)
-      (footer) ) ) )
+      (nav) ) ) )
 
 (de go ()
   (server 8080 "!home") )
@@ -179,7 +178,7 @@
 
 (de Simple ()
   (<div> "row mb-l"
-    (<h4> "black fw-500 mt-0 mb-0"
+    (<h4> "darker-grey fw-500 mt-0 mb-0"
       "Simple" )
     (<p> NIL
       "PicoLisp is a programming environment that prides itself on it's powerful
@@ -200,7 +199,7 @@
 
 (de Stable ()
   (<div> "row mb-l"
-    (<h4> "black fw-500 mt-0 mb-0"
+    (<h4> "darker-grey fw-500 mt-0 mb-0"
       "Stable" )
     (<p> "mb-s"
       "PicoLisp has been under development since the late 80's. Both the 
@@ -210,7 +209,7 @@
 
 (de Fun ()
   (<div> "row mb-l"
-    (<h4> "black fw-500 mt-0 mb-0"
+    (<h4> "darker-grey fw-500 mt-0 mb-0"
       "Fun" )
     (<p> NIL
       "PicoLisp has a lot of features that really make it a pleasure to program.
@@ -218,22 +217,22 @@
     (<ul> "pl-m pr-m big-pl-l big-pr-l"
       (<style> "pb-m"
         (<li> NIL 
-          (<href> "GUI Framework" "#")
-          (<p> NIL
-            "PicoLisp ships with all you need to get started writing
-            web applications. Just add love and a bit of CSS." ) )
-        (<li> NIL 
           (<href> "Integrated Database" "#")
           (<p> NIL 
             "Database functionality is built into the core of the language.
             PicoLisp " (<span> "fs-i" "is") " a database query and manipulation
-            language. Build multi-user databases, distributed across many 
+            language. Build large multi-user databases, distributed across many 
             machines or in a cloud, with a modest, lean technology stack." ) )
+        (<li> NIL 
+          (<href> "UI Framework" "#")
+          (<p> NIL
+            "PicoLisp ships with all you need to get started writing
+            web applications. Just add love and a bit of CSS." ) )
         (<li> NIL 
           (<href> "Native C calls" "#")
           (<p> NIL
             "Interface with almost any C library function, manipulate C data 
-            structures in memory, and call lisp functions from your C code. All 
+            structures in memory, call lisp functions from your C code. All 
             this without writing any glue code or include files. Heck, you can 
             even call those C functions from the REPL." ) )
         (<li> NIL 
@@ -247,7 +246,7 @@
 
 (de Flexible ()
   (<div> "row mb-l"
-    (<h4> "black fw-500 mt-0 mb-0"
+    (<h4> "darker-grey fw-500 mt-0 mb-0"
       "Flexible" )
     (<p> NIL
       "It's lisp, afterall. It's a programming language best suited for
@@ -259,28 +258,36 @@
 
 (de UnabashedlyDynamic ()
   (<div> "row mb-l"
-    (<h4> "black fw-500 mt-0 mb-0"
+    (<h4> "darker-grey fw-500 mt-0 mb-0"
       "Unabashedly Dynamic" )
     (<p> NIL
-      "PicoLisp doesn't give a fuck. It tries to be as dynamic as possible. 
+      "PicoLisp doesn't even care! It " (<span> "fs-i" "tries") " to be as dynamic as possible. 
       All decisions - matters like memory management, dynamic symbol binding,
       and late method binding - are delayed until runtime. Entire environments
       are first-class citizens. There is no compiler." )
+    (<p> NIL
+      "But seriously, dynamic binding is very powerful because there is only one
+      single, dynamically changing environment active all the time. This makes it
+      possible (e.g. for program snippets, interspersed with application data
+      and/or passed over the network) to access the whole application context
+      freely, yet in a dynamically controlled manner. And (shallow) dynamic
+      binding is the fastest method for a lisp interpreter." )
     (<p> NIL
       "It's a breath of fresh air in this stagnant, statically typed world." ) ) )
 
 (de Dangerous ()
   (<div> "row mb-l"
-    (<h4> "black fw-500 mt-0 mb-0"
+    (<h4> "darker-grey fw-500 mt-0 mb-0"
       "Dangerous" )
     (<p> NIL
-      "PicoLisp is for programmers who want to understand their environment, at
-       all levels, from the application domain down to the bare metal, who want 
-       to use a transparent and simple - yet universal - programming model, and 
-       who want to know exactly what is going on." )
+      "PicoLisp is for programmers who want fine-grained control of their 
+      environment, at all levels, from the application domain down to the 
+      bare metal, who want to use a transparent and simple - yet universal - 
+      programming model, and who want to know exactly what is going on." )
     (<p> NIL
-      "It does not pretend to be easy to learn, nor will it make any attempt 
-      to protect you from yourself. You've been warned." ) ) )
+      "Such control comes at a price, however. PicoLisp does not pretend to be 
+      easy to learn, nor will it make any attempt to protect you from yourself. 
+      You've been warned." ) ) )
 
 ########
 # footer
