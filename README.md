@@ -24,3 +24,5 @@ Fire up your browser and head to localhost:8080.
 None of the links work; this is just a glorified mock-up, a proof of concept.
 
 You will be disappointed when you type `help` in the REPL. I have not made the little tutorial yet, but otherwise it works just fine.
+
+Finally, I've only tested this in firefox. Apologies if it looks like poo in other browsers. 
