@@ -271,9 +271,7 @@
       possible (e.g. for program snippets, interspersed with application data
       and/or passed over the network) to access the whole application context
       freely, yet in a dynamically controlled manner. And (shallow) dynamic
-      binding is the fastest method for a lisp interpreter." )
-    (<p> NIL
-      "It's a breath of fresh air in this stagnant, statically typed world." ) ) )
+      binding is the fastest method for a lisp interpreter." ) ) )
 
 (de Dangerous ()
   (<div> "row mb-l"
