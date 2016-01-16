@@ -1,9 +1,7 @@
 body {
   font-family: 'Exo';
   margin: 0;
-  background-color: #040404;
-  background:
-    linear-gradient(to right, #040404 66%, black);
+  background-color: #090910;
 }
 
 .pl-code-bg {
@@ -22,7 +20,7 @@ body {
   width: 100%;
   height: 100%;
   background: url("../img/Desktop/pl-code.jpg") no-repeat;
-  opacity: 0.08;
+  opacity: 0.06;
 }
 
 /*********/
@@ -127,6 +125,7 @@ fieldset {
 
 .features h4 {
   font-weight: 500;
+  color: #090910;
 }
 
 

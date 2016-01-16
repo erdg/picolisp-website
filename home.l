@@ -55,8 +55,8 @@
         (header)
         (try-it)
         (stripe)
-      (features)
-      (nav) ) ) )
+        (features)
+        (nav) ) ) )
 
 (de go ()
   (server 8080 "!home") )
@@ -173,7 +173,7 @@
         (Stable)
         (Flexible)
         (UnabashedlyDynamic)
-        (Dangerous) ) ) ) )
+        (Challenging) ) ) ) )
     
 
 (de Simple ()
@@ -191,11 +191,7 @@
       hood. In fact, at the lowest level, the VM is built up from a 
       single data structure, " (<href> "the cell" "#") ". The high-level
       constructs of the programming language map directly to these cells, 
-      making the whole system both understandable and predictable." )
-    (<p> NIL
-      "Relax into the PicoLisp mindset. All your thoughts and all your
-      programs are simply a bunch of cells, making connections and sharing data
-      amongst themselves." ) ) )
+      making the whole system both understandable and predictable." ) ) )
 
 (de Stable ()
   (<div> "row mb-l"
@@ -273,10 +269,10 @@
       freely, yet in a dynamically controlled manner. And (shallow) dynamic
       binding is the fastest method for a lisp interpreter." ) ) )
 
-(de Dangerous ()
+(de Challenging ()
   (<div> "row mb-l"
     (<h4> "darker-grey fw-500 mt-0 mb-0"
-      "Dangerous" )
+      "Challenging" )
     (<p> NIL
       "PicoLisp is for programmers who want fine-grained control of their 
       environment, at all levels, from the application domain down to the 
@@ -284,8 +280,7 @@
       programming model, and who want to know exactly what is going on." )
     (<p> NIL
       "Such control comes at a price, however. PicoLisp does not pretend to be 
-      easy to learn, nor will it make any attempt to protect you from yourself. 
-      You've been warned." ) ) )
+      easy to learn, nor will it make any attempt to protect you from yourself." ) ) )
 
 ########
 # footer
